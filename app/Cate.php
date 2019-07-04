@@ -10,5 +10,9 @@ class Cate extends Model
 
     protected $fillable = ['name'];
 
-    public $timestamps = false;
+    public $timestamps = true;
+
+    public function products(){
+    	return $this->hasMany('App\Product');
+    }
 }
