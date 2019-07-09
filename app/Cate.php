@@ -8,7 +8,7 @@ class Cate extends Model
 {
     protected $table = 'cates';
 
-    protected $fillable = ['name','created_at','updated_at'];
+    protected $fillable = ['name'];
 
     public $timestamps = true;
 
