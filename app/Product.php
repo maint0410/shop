@@ -8,9 +8,9 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    protected $fillable = ['name','price','cate_id','user_id'];
+    protected $fillable = ['name','price','image','description','cate_id','user_id','created_at','updated_at'];
 
-    public $timestamps = false;
+    public $timestamps = true;
 
     public function cates(){
     	return $this->belongsTo('App\Cate');

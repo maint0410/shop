@@ -19,9 +19,6 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin'],function(){
 
 	Route::group(['prefix'=>'category'],function(){
-		// Route::get('add-category', function(){
-		// 	return view('admin.cate.add');
-		// });
 		Route::get('list-category',['as'=>'list-category.show','uses'=>'CateController@show']);
 		Route::get('add-category',['as'=>'add-category.index','uses'=>'CateController@index']);
 		Route::post('add-category',['as'=>'add-category.store','uses'=>'CateController@store']);
@@ -32,31 +29,27 @@ Route::group(['prefix'=>'admin'],function(){
 	});
 	
 	Route::group(['prefix'=>'product'],function(){
-		Route::get('add-product',function(){
-			return view('admin.product.add');
-		});
+		//hiển thị danh sách product
+		Route::get('list-product',['as'=>'list-product.index','uses'=>'ProductController@index']);
 
-		Route::get('edit-product',function(){
-			return view('admin.product.edit');
-		});
+		//hiển thị form tạo-add
+		Route::get('add-product',['as'=>'add-product.create','uses'=>'ProductController@create']);
 
-		Route::get('list-product', function(){
-			return view('admin.product.list');
-		});
+		//hiển thị một tài nguyên được chỉ định
+		// Route::get('list-product',['as'=>'list-product.show','uses'=>'ProductController@show']);
+
+		//Lưu trữ một tài nguyên mới được tạo
+		Route::post('add-product',['as'=>'add-product.store','uses'=>'ProductController@store']);
+
+		//hiển thị form sửa-edit
+		Route::get('edit-product/{id}',['as'=>'edit-category.edit','uses'=>'ProductController@edit']);
+
+		//Xóa tài nguyên được chỉ định
+		Route::get('delete-product/{id}',['as'=>'delete-product.destroy','uses'=>'ProductController@destroy']);
 	});
 
 	Route::group(['prefix'=>'user'],function(){
-		Route::get('add-user',function(){
-			return view('admin.user.add');
-		});
-
-		Route::get('edit-user',function(){
-			return view('admin.user.edit');
-		});
-
-		Route::get('list-user', function(){
-			return view('admin.user.list');
-		});
+		
 	});
 
 });
