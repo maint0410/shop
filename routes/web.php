@@ -42,7 +42,10 @@ Route::group(['prefix'=>'admin'],function(){
 		Route::post('add-product',['as'=>'add-product.store','uses'=>'ProductController@store']);
 
 		//hiển thị form sửa-edit
-		Route::get('edit-product/{id}',['as'=>'edit-category.edit','uses'=>'ProductController@edit']);
+		Route::get('edit-product/{id}',['as'=>'edit-product.edit','uses'=>'ProductController@edit']);
+
+		//Update một tài nguyên được edit
+		Route::post('edit-product/{id}',['as'=>'edit-product.update','uses'=>'ProductController@update']);
 
 		//Xóa tài nguyên được chỉ định
 		Route::get('delete-product/{id}',['as'=>'delete-product.destroy','uses'=>'ProductController@destroy']);
