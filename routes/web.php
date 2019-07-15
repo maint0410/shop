@@ -49,6 +49,9 @@ Route::group(['prefix'=>'admin'],function(){
 
 		//Xóa tài nguyên được chỉ định
 		Route::get('delete-product/{id}',['as'=>'delete-product.destroy','uses'=>'ProductController@destroy']);
+
+		//Xóa ảnh
+		Route::get('delImage/{id}',['as'=>'del-image-product.destroy','uses'=>'ProductController@destroyImg']);
 	});
 
 	Route::group(['prefix'=>'user'],function(){
